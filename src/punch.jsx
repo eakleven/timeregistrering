@@ -1,30 +1,13 @@
 import React from "react";
-
+import {getLocations} from "./locations"
+import {DisplayLocations} from "./components/DisplayLocations";
 
 
 export class Punch extends React.Component{
     constructor(props) {
         super(props);
 
-        this.state = {
-            locations: [
-                {
-                    name: 'Nesbyen',
-                    category: 'Hytte',
-                    id: 2.1
-                },
-                {
-                    name: 'Risør',
-                    category: 'Hytte',
-                    id: 2.2
-                },
-                {
-                    name: 'Hjemme',
-                    category: 'Home',
-                    id: 1.1
-                }
-            ]
-        }
+        this.state = {locations: getLocations()}
     }
 
     render() {
@@ -32,7 +15,8 @@ export class Punch extends React.Component{
 
         return (
             <>
-                <p>{this.state.locations.map(locations => <h1 key={locations.id}>{locations.name}</h1>)}</p>
+                <h1 className='header'>Timeregistrering</h1>
+                <DisplayLocations locations = {this.state.locations}/>
             </>
         );
     }
