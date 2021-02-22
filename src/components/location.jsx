@@ -8,7 +8,7 @@ export const Location = (props) =>{
         <div className='container'>
 
             <h1 >{props.location.name}</h1>
-            <Button/>
+            <Button location = {props.location.name} addLocation = {props.addLocations}/>
         </div>
     )
 }

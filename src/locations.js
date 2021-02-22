@@ -1,26 +1,18 @@
 import React from 'react';
 
-const locations = [
+let locations = [
         {
             name: 'Nesbyen',
             category: 'Cabin',
-            id: () =>{
-                return this.name + '+' + this.category
-            }
         },
         {
             name: 'Risør',
             category: 'Cabin',
-            id: () =>{
-                return this.name + '+' + this.category
-            }
+
         },
         {
             name: 'Hjemme',
             category: 'Cabin',
-            id: () =>{
-                return this.name + '+' + this.category
-            }
         }
 ]
 
@@ -35,9 +27,6 @@ export function setLocations(name, category){
         {
         name: name,
         category: category,
-        id: () =>{
-            return this.name + '+' + this.category
-        }
         }
     )
 

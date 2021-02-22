@@ -10,13 +10,20 @@ export class Punch extends React.Component{
         this.state = {locations: getLocations()}
     }
 
-    render() {
+    addLocations = () => {
+        this.setState({locations: getLocations()})
+    }
 
+
+    render() {
 
         return (
             <>
                 <h1 className='header'>Timeregistrering</h1>
-                <DisplayLocations locations = {this.state.locations}/>
+                <DisplayLocations
+                    locations = {this.state.locations}
+                    addLocations = {this.addLocations}
+                />
             </>
         );
     }
