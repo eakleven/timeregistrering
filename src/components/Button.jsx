@@ -14,3 +14,4 @@ export const Button = props => {
 
     return <div className='button' onClick={onclick}><p className='text'>Legg til timer</p></div>
 }
+

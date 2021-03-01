@@ -1,0 +1,13 @@
+.UserCardContainer {
+    color: black;
+    border: 1px solid black;
+    height: 5em;
+    background-color: #A0F8A4;
+    padding: 2em;
+    transition: transform .5s;
+}
+
+
+.UserCardContainer:hover{
+    transform: scale(1.05);
+}
