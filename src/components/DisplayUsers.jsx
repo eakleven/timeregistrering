@@ -1,7 +1,6 @@
 import React from 'react';
 import './DisplayUsers.style.css'
 import {UserCard} from "./UserCard";
-import {setUsers} from "../users";
 
 
 export const DisplayUsers = props => {
@@ -9,7 +8,7 @@ export const DisplayUsers = props => {
         <>
 
         <div className='DisplayUsers'>
-        {props.users.map(users => <UserCard user = {users}/>)}
+        {props.users.map(users => <UserCard key={users.name + users.salary} user = {users}/>)}
         </div>
         </>)
 
