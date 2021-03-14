@@ -13,7 +13,7 @@ export class Home extends React.Component {
         this.state = {users: getUsers()}
     }
 
-    updateUsers = () =>{
+  updateUsers = () =>{
         this.setState({users: getUsers()})
     }
 
