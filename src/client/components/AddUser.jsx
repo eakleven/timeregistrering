@@ -1,55 +1,65 @@
 import React from 'react'
-
+import { useState } from 'react'
 import {setUsers} from "../users";
 
-export class AddUser extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            salary: null
-        }
+import Axios from 'axios';
+
+export const AddUser = (props) => {
+
+    const [name, setName] = useState("");
+    const [wage, setWage] = useState(null);
+
+
+    const sendToDB = async () => {
+        console.log("submitting ",{name, wage});
+        await fetch("http://localhost:3000/createuser", {
+            method: "POST",
+            body: JSON.stringify({name, wage})
+        })
     }
 
 
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setUsers(name, wage);
+        console.log("submitting ", {name});
+        await fetch("/api/users", {
+            method: "POST",
+            body: JSON.stringify({name: name, wage: wage})
+        })
 
-    handleChange = (event) => {
-        let name = event.target.name;
-        let value = event.target.value;
-        this.setState({[name]: value})
-    }
-
-
-    handleSubmit = (event) =>{
-        event.preventDefault()
-        let name = this.state.name;
-        let salary = this.state.salary;
-        setUsers(name, salary)
-        this.props.updateUsers()
-        this.setState({name: '', salary: null})
-        event.target.reset();
+        props.updateUsers();
+        e.target.reset()
+    //    setName("");
+    //    setWage(null);
 
     }
 
-
-    render() {
         return(
                 <>
-                <h2>Navn: {this.state.name} <br/> Lønn: {this.state.salary} </h2>
-                <form onSubmit={this.handleSubmit}>
+                <h2>Navn: {name} <br/> Lønn: {wage} </h2>
+                    <form onSubmit={handleSubmit}>
+
                     <label>
                         Name:
-                        <input type='text' name='name' onChange={this.handleChange}/>
+                        <input type='text'
+                               name='name'
+                               onChange={(event) =>{
+                                   setName(event.target.value)
+                               }}/>
                     </label>
                     <br/>
                     <label>
                         Salary:
-                        <input type='text' name='salary' onChange={this.handleChange}/>
+                        <input type='text'
+                               name='salary'
+                               onChange={(event) =>{
+                            setWage(event.target.value)
+                        }}/>
                     </label>
-                        <input type='submit' value='Submit'/>
-                </form>
+                    <button type="submit" >Submit</button>
+                    </form>
             </>
             )
-    }
 }
