@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 const {users} = require("./db/user")
+const {locations} = require("./db/locations")
 
 
 
@@ -18,9 +19,22 @@ app.post('/api/users', (req, res) =>{
     res.status(201).end();
 })
 
+app.post('/api/locations', (req, res) =>{
+    const {name, category} = req.body;
+    console.log(req.body)
+    locations.push({name, category, id: locations.length + 1})
+    res.status(201).end();
+})
+
 app.get("/api/users", (req, res) =>{
     console.log(users)
     res.json(users);
+
+})
+
+app.get("/api/locations", (req, res) =>{
+    console.log(locations)
+    res.json(locations);
 
 })
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
 import {Home} from './home'
 
 import {Punch} from './punch';
@@ -20,6 +20,10 @@ const notFound = () => {
 const App = () => {
     return (
         <BrowserRouter>
+            <nav>
+                <Link to={"/"}>Home</Link>
+                <Link to={"/Punch"}>Steder</Link>
+            </nav>
             <div>
                 <Switch>
                     <Route exact path="/punch" component={Punch}/>

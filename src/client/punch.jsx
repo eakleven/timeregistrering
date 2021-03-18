@@ -1,30 +1,42 @@
-import React from "react";
-import {getLocations} from "./locations"
+import React, {useEffect, useState} from "react";
 import {DisplayLocations} from "./components/DisplayLocations";
+import {AddLocation} from "./components/AddLocation";
 
 
-export class Punch extends React.Component{
-    constructor(props) {
-        super(props);
+export const Punch = () => {
+    const [locations, setLocations] = useState();
+    const  [error, setError] = useState();
 
-        this.state = {locations: getLocations()}
+
+
+    const loadLocations  = async () => {
+        try {
+            const res = await fetch("api/locations");
+            if (!res.ok) {
+                throw new Error(`Something went wrong ${res.url}: ${res.statusText}`)
+            }
+            const json = await res.json();
+            setLocations(json);
+        } catch (e) {
+            setError(e)
+        }
     }
 
-    addLocations = () => {
-        this.setState({locations: getLocations()})
+    useEffect(loadLocations, [])
+
+    if(error){
+        return <div>Error happened</div>
     }
 
-
-    render() {
-
+    if(!locations){
+        return <div>..Loading..</div>
+    }
         return (
             <>
                 <h1 className='header'>Timeregistrering</h1>
                 <DisplayLocations
-                    locations = {this.state.locations}
-                    addLocations = {this.addLocations}
-                />
+                    locations = {locations}/>
+                <AddLocation/>
             </>
         );
-    }
 }

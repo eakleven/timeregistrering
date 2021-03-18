@@ -1,9 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
-import {setUsers} from "../users";
 
 
-export const AddUser = (props) => {
+export const AddUser = () => {
 
     const [name, setName] = useState("");
     const [wage, setWage] = useState(null);
