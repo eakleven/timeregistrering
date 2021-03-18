@@ -3,7 +3,7 @@ Register hours to different locations.
 
 
 - [x] Make user <br>
-- [ ] Make new locations
+- [x] Make new locations
 - [ ] Add hours to specified location
 - [ ] List total hours to each individual location
 - [ ] List total salary
