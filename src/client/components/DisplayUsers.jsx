@@ -1,15 +1,15 @@
 import React from 'react';
-import './DisplayUsers.style.css'
-import {UserCard} from "./UserCard";
+import './DisplayUsers.style.css';
+import { UserCard } from './UserCard';
 
-
-export const DisplayUsers = props => {
-    return (
-        <>
-
-        <div className='DisplayUsers'>
-        {props.users.map(users => <UserCard key={users.name + users.wage} user = {users}/>)}
-        </div>
-        </>)
-
-}
+export const DisplayUsers = (props) => {
+	return (
+		<>
+			<div className="DisplayUsers">
+				{props.users.map((users) => (
+					<UserCard key={users.name + users.wage} user={users} />
+				))}
+			</div>
+		</>
+	);
+};

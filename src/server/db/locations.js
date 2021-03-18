@@ -1,17 +1,16 @@
 let locations = [
-    {
-        name: 'Nesbyen',
-        category: 'Cabin',
-    },
-    {
-        name: 'Risør',
-        category: 'Cabin',
+	{
+		name: 'Nesbyen',
+		category: 'Cabin',
+	},
+	{
+		name: 'Risør',
+		category: 'Cabin',
+	},
+	{
+		name: 'Hjemme',
+		category: 'Cabin',
+	},
+];
 
-    },
-    {
-        name: 'Hjemme',
-        category: 'Cabin',
-    }
-]
-
-module.exports = {locations}
+module.exports = { locations };

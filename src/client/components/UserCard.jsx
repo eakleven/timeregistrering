@@ -1,14 +1,19 @@
-import React from 'react'
+import React from 'react';
 
-import './UserCard.style.css'
+import './UserCard.style.css';
 
-export const UserCard = props =>{
+export const UserCard = (props) => {
+	const klikk = () => {
+		alert('Bæsj');
 
-    return(
-        <>
-            <div className='UserCardContainer'>
-                <h1>{props.user.name}</h1>
-            </div>
-        </>
-    )
-}
+		return <FormHours />;
+	};
+
+	return (
+		<>
+			<div className="UserCardContainer" onClick={klikk}>
+				<h1>{props.user.name}</h1>
+			</div>
+		</>
+	);
+};

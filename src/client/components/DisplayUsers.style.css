@@ -1,9 +1,9 @@
-.DisplayUsers{
-    margin: 1em 1em;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
-    text-align: center;
-    max-width: available;
-    min-width: fit-content;
+.DisplayUsers {
+	margin: 1em 1em;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 20px;
+	text-align: center;
+	max-width: available;
+	min-width: fit-content;
 }
