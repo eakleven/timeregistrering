@@ -8,7 +8,7 @@ export const DisplayUsers = props => {
         <>
 
         <div className='DisplayUsers'>
-        {props.users.map(users => <UserCard key={users.name + users.salary} user = {users}/>)}
+        {props.users.map(users => <UserCard key={users.name + users.wage} user = {users}/>)}
         </div>
         </>)
 

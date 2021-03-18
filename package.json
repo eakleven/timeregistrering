@@ -1,16 +1,9 @@
 {
   "name": "timepunch",
   "version": "1.0.0",
-  "description": "Hobbyprosjekt for å lære react.",
+  "description": "Timeregistering",
   "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
-  "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run parcel\"",
-    "server": "nodemon src/server/server.js",
-    "parcel": "parcel src/client/index.html"
-  },
+  "homepage": "https://github.com/eakleven/timeregistrering#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eakleven/timeregistrering.git"
@@ -20,7 +13,14 @@
   "bugs": {
     "url": "https://github.com/eakleven/timeregistrering/issues"
   },
-  "homepage": "https://github.com/eakleven/timeregistrering#readme",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run parcel\"",
+    "server": "nodemon src/server/server.js",
+    "parcel": "parcel src/client/index.html"
+  },
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-react": "^7.12.13",

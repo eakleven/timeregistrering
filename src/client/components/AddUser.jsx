@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 import {setUsers} from "../users";
 
-import Axios from 'axios';
 
 export const AddUser = (props) => {
 
@@ -10,27 +9,18 @@ export const AddUser = (props) => {
     const [wage, setWage] = useState(null);
 
 
-    const sendToDB = async () => {
-        console.log("submitting ",{name, wage});
-        await fetch("http://localhost:3000/createuser", {
-            method: "POST",
-            body: JSON.stringify({name, wage})
-        })
-    }
-
-
-
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setUsers(name, wage);
         console.log("submitting ", {name});
         await fetch("/api/users", {
             method: "POST",
-            body: JSON.stringify({name: name, wage: wage})
+            body: JSON.stringify({name, wage}),
+            headers: {
+                "Content-Type": "application/json"
+            }
         })
 
-        props.updateUsers();
-        e.target.reset()
+    //    e.target.reset()
     //    setName("");
     //    setWage(null);
 
