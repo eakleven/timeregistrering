@@ -1,13 +1,20 @@
 import React from 'react';
 import './DisplayUsers.style.css';
-import { UserCard } from './UserCard';
 
 export const DisplayUsers = (props) => {
+	const klikk = () => {
+		alert('Bæsj');
+
+		return <FormHours />;
+	};
+
 	return (
 		<>
 			<div className="DisplayUsers">
-				{props.users.map((users) => (
-					<UserCard key={users.name + users.wage} user={users} />
+				{props.users.map((user) => (
+					<div className="UserCardContainer" onClick={klikk}>
+						<h1>{user.name}</h1>
+					</div>
 				))}
 			</div>
 		</>

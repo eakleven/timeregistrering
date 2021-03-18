@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { DisplayLocations } from './components/DisplayLocations';
 import { AddLocation } from './components/AddLocation';
 
-export const Punch = () => {
+export const LoadLocations = () => {
 	const [locations, setLocations] = useState();
 	const [error, setError] = useState();
 

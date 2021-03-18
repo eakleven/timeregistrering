@@ -7,3 +7,16 @@
 	max-width: available;
 	min-width: fit-content;
 }
+.container {
+	color: black;
+	border: 1px solid black;
+	height: 5em;
+	background-color: #a0f8a4;
+	padding: 2em;
+	transition: transform 0.5s;
+}
+
+.container:hover {
+	transform: scale(1.05);
+}
+

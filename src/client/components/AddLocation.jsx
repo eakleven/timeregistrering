@@ -16,9 +16,9 @@ export const AddLocation = () => {
 			},
 		});
 
-		//    e.target.reset()
-		//    setName("");
-		//    setWage(null);
+		e.target.reset();
+		setName('');
+		setCategory(null);
 	};
 
 	return (

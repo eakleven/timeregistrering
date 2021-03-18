@@ -16,9 +16,9 @@ export const AddUser = () => {
 			},
 		});
 
-		//    e.target.reset()
-		//    setName("");
-		//    setWage(null);
+		e.target.reset();
+		setName('');
+		setWage(null);
 	};
 
 	return (

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { Home } from './home';
 
-import { Punch } from './punch';
+import { LoadLocations } from './loadLocations';
 
 const notFound = () => {
 	return (
@@ -24,7 +24,7 @@ const App = () => {
 			</nav>
 			<div>
 				<Switch>
-					<Route exact path="/punch" component={Punch} />
+					<Route exact path="/punch" component={LoadLocations} />
 					<Route exact path="/" component={Home} />
 					<Route component={notFound} />
 				</Switch>
