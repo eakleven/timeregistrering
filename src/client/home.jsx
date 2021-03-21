@@ -9,18 +9,13 @@ export const Home = () => {
 	const [error, setError] = useState();
 
 	const loadUsers = async () => {
-		try {
-			const res = await fetch('api/users');
-			if (!res.ok) {
-				throw new Error(
-					`Something went wrong ${res.url}: ${res.statusText}`
-				);
-			}
-			const json = await res.json();
-			setUsers(json);
-		} catch (e) {
-			setError(e);
+		const res = await fetch('api/users');
+		if (!res.ok) {
+			setError(`Something went wrong ${res.url}: ${res.statusText}`);
+			console.log(error);
 		}
+		const json = await res.json();
+		setUsers(json);
 	};
 
 	useEffect(loadUsers, []);
@@ -33,14 +28,9 @@ export const Home = () => {
 		return <div>..loading</div>;
 	}
 
-	const onclick = () => {
-		alert('Du trykka');
-	};
-
 	return (
 		<>
 			<DisplayUsers users={users} />
-			<AddUser />
 		</>
 	);
 };

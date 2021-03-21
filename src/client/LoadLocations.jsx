@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { DisplayLocations } from './components/DisplayLocations';
 import { AddLocation } from './components/AddLocation';
 
-export const LoadLocations = () => {
+export const LoadLocations = (props) => {
 	const [locations, setLocations] = useState();
 	const [error, setError] = useState();
+	const user = props.user;
 
 	const loadLocations = async () => {
 		try {
@@ -33,8 +34,7 @@ export const LoadLocations = () => {
 	return (
 		<>
 			<h1 className="header">Timeregistrering</h1>
-			<DisplayLocations locations={locations} />
-			<AddLocation />
+			<DisplayLocations locations={locations} user={user} />
 		</>
 	);
 };

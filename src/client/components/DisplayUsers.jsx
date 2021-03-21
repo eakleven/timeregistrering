@@ -1,22 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DisplayUsers.style.css';
+import { LoadLocations } from '../LoadLocations';
+import { AddUser } from './AddUser';
 
 export const DisplayUsers = (props) => {
-	const klikk = () => {
-		alert('Bæsj');
+	const [state, setState] = useState('USERS');
+	const [user, setUser] = useState('');
 
-		return <FormHours />;
+	const onclick = (u) => {
+		setUser(u);
+		setState('LOCATIONS');
 	};
 
 	return (
 		<>
-			<div className="DisplayUsers">
-				{props.users.map((user) => (
-					<div className="UserCardContainer" onClick={klikk}>
-						<h1>{user.name}</h1>
+			{state === 'USERS' && (
+				<div>
+					<div className="DisplayUsers">
+						{props.users.map((user) => (
+							<div
+								className="UserCardContainer"
+								onClick={() => {
+									onclick(user);
+								}}
+								key={user.id}
+							>
+								<h1>{user.name}</h1>
+							</div>
+						))}
 					</div>
-				))}
-			</div>
+					<AddUser />
+				</div>
+			)}
+			{state === 'LOCATIONS' && <LoadLocations user={user} />}
 		</>
 	);
 };

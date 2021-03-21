@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import './AddUser.style.css';
 
 export const AddUser = () => {
 	const [name, setName] = useState('');
@@ -23,33 +24,35 @@ export const AddUser = () => {
 
 	return (
 		<>
-			<h2>
-				Navn: {name} <br /> Lønn: {wage}{' '}
-			</h2>
-			<form onSubmit={handleSubmit}>
-				<label>
-					Name:
-					<input
-						type="text"
-						name="name"
-						onChange={(event) => {
-							setName(event.target.value);
-						}}
-					/>
-				</label>
-				<br />
-				<label>
-					Salary:
-					<input
-						type="text"
-						name="salary"
-						onChange={(event) => {
-							setWage(event.target.value);
-						}}
-					/>
-				</label>
-				<button type="submit">Submit</button>
-			</form>
+			<div className={'AUContainer'}>
+				<h2>
+					Navn: {name} <br /> Lønn: {wage}{' '}
+				</h2>
+				<form onSubmit={handleSubmit}>
+					<label>
+						Name:
+						<input
+							type="text"
+							name="name"
+							onChange={(event) => {
+								setName(event.target.value);
+							}}
+						/>
+					</label>
+					<br />
+					<label>
+						Salary:
+						<input
+							type="text"
+							name="salary"
+							onChange={(event) => {
+								setWage(event.target.value);
+							}}
+						/>
+					</label>
+					<button type="submit">Submit</button>
+				</form>
+			</div>
 		</>
 	);
 };

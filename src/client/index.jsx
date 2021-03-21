@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { Home } from './home';
 
-import { LoadLocations } from './loadLocations';
+import { LoadLocations } from './LoadLocations';
 
 const notFound = () => {
 	return (
@@ -26,6 +26,7 @@ const App = () => {
 				<Switch>
 					<Route exact path="/punch" component={LoadLocations} />
 					<Route exact path="/" component={Home} />
+
 					<Route component={notFound} />
 				</Switch>
 			</div>

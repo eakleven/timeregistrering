@@ -11,7 +11,7 @@
 	color: black;
 	border: 1px solid black;
 	height: 5em;
-	background-color: #a0f8a4;
+	background-color: #b6d5e1;
 	padding: 2em;
 	transition: transform 0.5s;
 }
@@ -19,4 +19,19 @@
 .container:hover {
 	transform: scale(1.05);
 }
+
+.button {
+	margin-top: 1em;
+	height: 2em;
+	font-size: large;
+	position: relative;
+	color: white;
+	background-color: #65799b;
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 
