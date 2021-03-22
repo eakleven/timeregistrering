@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './DisplayUsers.style.css';
-import { LoadLocations } from '../LoadLocations';
+import { LoadLocations } from './LoadLocations';
 import { AddUser } from './AddUser';
 
 export const DisplayUsers = (props) => {

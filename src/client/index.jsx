@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { Home } from './home';
-
-import { LoadLocations } from './LoadLocations';
+import { LoadLocations } from './components/LoadLocations';
+import { DisplayHours } from './components/DisplayHours';
 
 const notFound = () => {
 	return (
@@ -21,11 +21,13 @@ const App = () => {
 			<nav>
 				<Link to={'/'}>Home</Link>
 				<Link to={'/Punch'}>Steder</Link>
+				<Link to={'/Hours'}>DisplayHours</Link>
 			</nav>
 			<div>
 				<Switch>
 					<Route exact path="/punch" component={LoadLocations} />
 					<Route exact path="/" component={Home} />
+					<Route exact="/hours" component={DisplayHours} />
 
 					<Route component={notFound} />
 				</Switch>

@@ -7,7 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 export const FormHours = (props) => {
 	const [name, setName] = useState();
 	const [location, setLocation] = useState();
-	const [startDate, setDate] = useState(new Date());
+	const [date, setDate] = useState(new Date());
 	const [wage, setWage] = useState();
 	const [hours, setHours] = useState();
 
@@ -17,26 +17,49 @@ export const FormHours = (props) => {
 		setWage(props.user.wage);
 	}, []);
 
-	const formatDate = (e) => {
+	const postToServer = async (e) => {
 		e.preventDefault();
-		console.log(startDate);
-		const formated = format(startDate, 'dd/MM/yyyy');
-		//Check state, format is set to DATE
-		setDate(formated);
-		console.log(startDate);
+		console.log('Submitting:', {
+			name,
+			wage,
+			location,
+			date: format(date, 'dd/MM/yyyy'),
+			hours,
+		});
+		await fetch('/api/hours', {
+			method: 'POST',
+			body: JSON.stringify({
+				name,
+				wage,
+				location,
+				date: format(date, 'dd/MM/yyyy'),
+				hours,
+			}),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
+		setDate(null);
+		setHours(null);
 	};
 
 	return (
 		<>
 			<div className={'FContainer'}>
-				<div>{hours}</div>
 				<div>
-					<form onSubmit={formatDate}>
+					<h1>
+						User: {name}
+						<br />
+						Location: {location}
+					</h1>
+				</div>
+				<div>
+					<form onSubmit={postToServer}>
 						<label>
 							Set Date:
 							<DatePicker
 								dateFormat={'dd/MM/yyyy'}
-								selected={startDate}
+								selected={date}
 								onChange={(date) => setDate(date)}
 							/>
 						</label>

@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { DisplayUsers } from './components/DisplayUsers';
-import { AddUser } from './components/AddUser';
-
-import './home.style.css';
 
 export const Home = () => {
 	const [users, setUsers] = useState();
@@ -15,6 +12,7 @@ export const Home = () => {
 			console.log(error);
 		}
 		const json = await res.json();
+		console.log(json);
 		setUsers(json);
 	};
 

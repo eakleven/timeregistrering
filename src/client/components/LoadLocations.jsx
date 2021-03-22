@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { DisplayLocations } from './components/DisplayLocations';
-import { AddLocation } from './components/AddLocation';
+import { DisplayLocations } from './DisplayLocations';
 
 export const LoadLocations = (props) => {
 	const [locations, setLocations] = useState();
@@ -8,18 +7,14 @@ export const LoadLocations = (props) => {
 	const user = props.user;
 
 	const loadLocations = async () => {
-		try {
-			const res = await fetch('api/locations');
-			if (!res.ok) {
-				throw new Error(
-					`Something went wrong ${res.url}: ${res.statusText}`
-				);
-			}
-			const json = await res.json();
-			setLocations(json);
-		} catch (e) {
+		const res = await fetch('api/locations');
+		if (!res.ok) {
+			const e = `Something went wrong ${res.url}: ${res.statusText}`;
 			setError(e);
+			console.log(error);
 		}
+		const json = await res.json();
+		setLocations(json);
 	};
 
 	useEffect(loadLocations, []);
