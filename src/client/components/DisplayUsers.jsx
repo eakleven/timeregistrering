@@ -9,13 +9,23 @@ export const DisplayUsers = (props) => {
 
 	const onclick = (u) => {
 		setUser(u);
-		setState('LOCATIONS');
+		changeDisplay();
+	};
+
+	const changeDisplay = () => {
+		if (state === 'LOCATIONS') {
+			setState('USERS');
+		}
+		if (state === 'USERS') {
+			setState('LOCATIONS');
+		}
 	};
 
 	return (
 		<>
 			{state === 'USERS' && (
 				<div>
+					<h1 className="header">Choose user</h1>
 					<div className="DisplayUsers">
 						{props.users.map((user) => (
 							<div
@@ -32,7 +42,9 @@ export const DisplayUsers = (props) => {
 					<AddUser />
 				</div>
 			)}
-			{state === 'LOCATIONS' && <LoadLocations user={user} />}
+			{state === 'LOCATIONS' && (
+				<LoadLocations user={user} onclick={changeDisplay} />
+			)}
 		</>
 	);
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { format } from 'date-fns';
+import './FormHours.style.css';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -46,14 +47,14 @@ export const FormHours = (props) => {
 	return (
 		<>
 			<div className={'FContainer'}>
-				<div>
+				<div className={'FHeader'}>
 					<h1>
 						User: {name}
 						<br />
 						Location: {location}
 					</h1>
 				</div>
-				<div>
+				<div className={'FForm'}>
 					<form onSubmit={postToServer}>
 						<label>
 							Set Date:

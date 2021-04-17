@@ -5,6 +5,8 @@ import { Home } from './home';
 import { LoadLocations } from './components/LoadLocations';
 import { DisplayHours } from './components/DisplayHours';
 
+import './index.css';
+
 const notFound = () => {
 	return (
 		<div>
@@ -18,16 +20,28 @@ const notFound = () => {
 const App = () => {
 	return (
 		<BrowserRouter>
-			<nav>
-				<Link to={'/'}>Home</Link>
-				<Link to={'/Punch'}>Steder</Link>
-				<Link to={'/Hours'}>DisplayHours</Link>
-			</nav>
+			<div className={'firstHeader'}>
+				<nav>
+					<Link className={'navbar'} to={'/'}>
+						Home
+					</Link>
+					<Link className={'navbar'} to={'/locations'}>
+						Steder
+					</Link>
+					<Link className={'navbar'} to={'/Hours'}>
+						DisplayHours
+					</Link>
+				</nav>
+				<div className={'blackbox1'}></div>
+				<div className={'blackbox2'}></div>
+				<h1 className={'firstHeaderText'}>-Arbeid</h1>
+			</div>
+
 			<div>
 				<Switch>
-					<Route exact path="/punch" component={LoadLocations} />
 					<Route exact path="/" component={Home} />
-					<Route exact="/hours" component={DisplayHours} />
+					<Route exact path="/hours" component={DisplayHours} />
+					<Route exact path="/locations" component={LoadLocations} />
 
 					<Route component={notFound} />
 				</Switch>

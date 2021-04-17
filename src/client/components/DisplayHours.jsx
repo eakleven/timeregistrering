@@ -4,7 +4,6 @@ import './DisplayHours.style.css';
 
 export const DisplayHours = () => {
 	const [totalHours, setTotalHours] = useState();
-	const [state, setState] = useState();
 	const [error, setError] = useState();
 
 	const loadTotals = async () => {

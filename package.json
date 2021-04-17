@@ -17,7 +17,7 @@
     "test": "tests"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run parcel\"",
+    "start": "concurrently npm:server npm:parcel",
     "server": "nodemon src/server/server.js",
     "parcel": "parcel src/client/index.html",
     "format": "prettier --write src"

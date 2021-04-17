@@ -18,7 +18,7 @@ export const DisplayLocations = (props) => {
 				<div>
 					<div className="DisplayLocations">
 						{props.locations.map((location) => (
-							<div className="container">
+							<div className="container" key={location.id}>
 								<h1>{location.name}</h1>
 								<div
 									className={'button'}

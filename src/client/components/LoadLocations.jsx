@@ -28,6 +28,7 @@ export const LoadLocations = (props) => {
 	}
 	return (
 		<>
+			<button onClick={props.onclick}>Back</button>
 			<h1 className="header">Timeregistrering</h1>
 			<DisplayLocations locations={locations} user={user} />
 		</>
