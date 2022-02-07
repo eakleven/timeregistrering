@@ -1,4 +1,6 @@
 # Timepunch
+## There is a lot of tecnhical debt on this project that is currently being worked on
+
 Register workedHours to different locations.
 
 
