@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react';
 import './DisplayHours.style.css';
 
 export const DisplayHours = () => {
-	const [totalHours, setTotalHours] = useState();
+	const [totalHours, setTotalHours] = useState([]);
+	const [users, setUsers] = useState();
+	const [locations, setLocations] = useState();
 	const [error, setError] = useState();
 
 	const loadTotals = async () => {
@@ -18,12 +20,43 @@ export const DisplayHours = () => {
 
 	useEffect(loadTotals, []);
 
+	const addLocations = () => {
+		let fo = []
+		totalHours.forEach(element => {
+			if (!fo.includes(element.location)) {
+				fo.push(element.location)
+			}
+		}
+		);
+		setLocations(fo)
+	}
+
+	const addUser = () => {
+		let fo = []
+		totalHours.forEach(element => {
+
+			if (!fo.includes(element.name)) {
+				fo.push(element.name)
+			}
+		})
+		setUsers(fo)
+	}
+
+	useEffect(() => {
+		addUser()
+		addLocations()
+	}, [totalHours]);
+
+
+
+
 	if (error) {
 		return <div>Error happened</div>;
 	}
-	if (!totalHours) {
+	if (!totalHours || !users) {
 		return <div>..Loading</div>;
 	}
+
 
 	return (
 		<>
@@ -40,6 +73,25 @@ export const DisplayHours = () => {
 							<p className={'cardDate'}>{card.date}</p>
 						</div>
 					))}
+				</div>
+				<div>
+					<h2>Total lønn: {users.map((user) => {
+						let salary;
+						totalHours.forEach(element => {
+							console.log(element.name + " " + user);
+							if (element.name === user) {
+								console.log(element.salary);
+
+								salary = + element.salary
+							}
+						})
+						return (
+							<p>{user}: {salary}</p>
+
+						)
+					}
+
+					)} </h2>
 				</div>
 			</div>
 		</>

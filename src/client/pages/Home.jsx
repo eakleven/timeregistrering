@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { DisplayUsers } from './components/DisplayUsers';
+import { DisplayUsers } from '../components/DisplayUsers';
 
 export const Home = () => {
 	const [users, setUsers] = useState();
@@ -28,6 +28,7 @@ export const Home = () => {
 
 	return (
 		<>
+
 			<DisplayUsers users={users} />
 		</>
 	);
